@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import 'styles/reset'
+import 'styles/fonts'
 import { application } from 'styles/Application'
 
 import CardContainer from './CardContainer'

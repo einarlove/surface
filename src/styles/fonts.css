@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'Avinor';
   font-weight: 300;
-  src: url('fonts/avinor-light.woff2') format('woff2'),
-       url('fonts/avinor-light.woff') format('woff');
+  src: url('./fonts/avinor-light.woff2') format('woff2'),
+       url('./fonts/avinor-light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Avinor';
   font-weight: normal;
-  src: url('fonts/avinor-medium.woff2') format('woff2'),
-       url('fonts/avinor-medium.woff') format('woff');
+  src: url('./fonts/avinor-medium.woff2') format('woff2'),
+       url('./fonts/avinor-medium.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Avinor';
   font-weight: 700;
-  src: url('fonts/avinor-bold.woff2') format('woff2'),
-       url('fonts/avinor-bold.woff') format('woff');
+  src: url('./fonts/avinor-bold.woff2') format('woff2'),
+       url('./fonts/avinor-bold.woff') format('woff');
 }
