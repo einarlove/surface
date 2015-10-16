@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
-// import 'styles/Application'
+import 'styles/reset'
+import { application } from 'styles/Application'
+
+import CardContainer from './CardContainer'
 
 export default class Application extends Component {
   constructor(props) {
@@ -9,7 +12,8 @@ export default class Application extends Component {
 
   render() {
     return (
-      <div className="Application">
+      <div className={application}>
+        <CardContainer />
       </div>
     )
   }

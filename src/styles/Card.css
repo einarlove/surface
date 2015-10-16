@@ -1,0 +1,110 @@
+@value primary from "./colors";
+@value borderColor #DADFE3;
+
+.card {
+  width: 95%;
+  margin: .8em;
+  border: 1px solid borderColor;
+  background: #FFFFFF;
+  max-width: 30em;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0px borderColor;
+  transition: box-shadow .7s ease-out-cubic, transform .5s ease-out-expo;
+}
+
+.horizontalPadding {
+  margin: 0 1.5rem;
+}
+
+.text {
+  composes: horizontalPadding;
+  margin-bottom: .4em;
+}
+
+.title {
+  composes: text;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: 1.5em;
+}
+
+.description {
+  font-size: 1.1em;
+  margin: 1.5em 0 1.8em;
+}
+
+.paragraph {
+  composes: text;
+}
+
+.title + .description {
+  margin-top: 0;
+  font-size: .9em;
+}
+
+.cover {
+  margin-top: .5em;
+
+}
+.cover img {
+  display: block;
+}
+
+.action {
+  border-top: 1px solid borderColor;
+  transition: .3s background-color ease-out-expo;
+}
+
+.card:hover {
+  transition-duration: .2s;
+  box-shadow: 0 0 10px 1px borderColor;
+  cursor: pointer;
+}
+
+.card:hover .action {
+  background-color: #F7F7F7;
+  cursor: pointer;
+}
+
+.card:active  {
+  transform: scale(0.99);
+}
+
+.actionLabel {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-top: .7em;
+  margin-bottom: .9em;
+  font-size: .875em;
+  letter-spacing: .06em;
+  composes: horizontalPadding;
+}
+
+.actionIcon {
+  composes: horizontalPadding;
+  margin-right: .5em;
+  font-size: 1.1em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: text-top;
+}
+
+.actionIcon + .actionLabel {
+  margin-left: 0;
+}
+
+.actionIcon svg {
+  display: inline-block;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cover + .action {
+  border-top: none;
+}
+
+:global(.qrCode).card .actionIcon {
+  font-size: 1.2em;
+}

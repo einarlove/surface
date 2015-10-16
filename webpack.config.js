@@ -21,15 +21,34 @@ const loaders = [
     loader: debug ? 'react-hot!babel?stage=0&cacheDirectory' : 'babel?stage=0',
     exclude: /node_modules/,
   },
-  {test: /\.json$/, loader: 'json', exclude: /node_modules/},
-  {test: /\.css$/, loader: 'style!css', exclude: /node_modules/},
+  {
+    test: /\.json$/,
+    loader: 'json',
+    exclude: /node_modules/,
+  },
+  {
+    test: /\.css$/,
+    loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]!postcss',
+    exclude: /node_modules/,
+  },
   {
     test: /.(png|jpg|svg)$/,
     loader: 'url?limit=5000&name=images/[name].[ext]',
-    exclude: [/node_modules/],
+    exclude: [/node_modules/, /assets\/icons/],
   },
-  {test: /\.(eot|ttf|woff2?)$/, loader: 'file?name=fonts/[name].[ext]'},
-  {test: /\.html$/, loader: 'file?name=[name].[ext]'},
+  {
+    test: /\.svg$/,
+    include: /assets\/icons/,
+    loader: 'svg-inline',
+  },
+  {
+    test: /\.(eot|ttf|woff2?)$/,
+    loader: 'file?name=fonts/[name].[ext]',
+  },
+  {
+    test: /\.html$/,
+    loader: 'file?name=[name].[ext]',
+  },
 ]
 
 const plugins = [
@@ -42,6 +61,12 @@ const resolve = {
   alias: {},
 }
 
+const postcss = [
+  require('postcss-easings'),
+  require('postcss-modules-values'),
+  require('postcss-color-function')(),
+]
+
 export default {
   entry,
   devtool,
@@ -51,4 +76,5 @@ export default {
   },
   plugins,
   resolve,
+  postcss,
 }

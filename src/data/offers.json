@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Is til barna",
+    "description": "Hos Monolitten får barna is når de voksne handler.",
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode når du er i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    }
+  },
+  {
+    "name": "Parken",
+    "title": "Slapp av ved parken",
+    "description": "Vi serverer god kaffe og smakfulle enkle retter ved gate 13/14. Kom innom da vel!",
+    "cover": {
+      "src": "./parkenservering.jpg"
+    }
+  },
+  {
+    "title": "En kaffe før du boarder?",
+    "description": "Få en deilig kopp nytraktet kaffe til 15 kr hos Ritazza"
+  },
+  {
+    "title": "Slapp av i loungen",
+    "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke."
+  }
+]

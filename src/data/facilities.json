@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Jobbsone",
+    "description": "Kommer du litt tidligere kan du jobbe eller surfe i jobbsonen nær gate 20 som er 5 min fra din gate.",
+    "cover": {
+      "src": "./workzone.jpg"
+    },
+    "action": {
+      "label": "Finn veien til jobbsonen",
+      "icon": "./map.svg"
+    }
+  },
+  {
+    "name": "Ammehjørne",
+    "title": "Har du med spedbarn?",
+    "description": "Ved gate 18 har vi et dedikert hjørne for foreldre med små barn som trenger amming.",
+    "cover": {
+      "src": "./breastfeeding-area.jpg"
+    },
+    "action": {
+      "label": "Finn ammehjørnet på kart",
+      "icon": "./map.svg"
+    }
+  }
+]

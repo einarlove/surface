@@ -1,0 +1,10 @@
+@value softGray from "./colors";
+
+.cardContainer {
+  overflow: auto;
+  background-color: softGray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5em 0 15em;
+}
