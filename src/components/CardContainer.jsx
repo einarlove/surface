@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import styles from 'styles/CardContainer'
 import facilities from '../data/facilities.json'
 import offers from '../data/offers.json'
+import shuffle from 'lodash/collection/shuffle'
 
 import Card from './Card'
 
-const cards = [...facilities, ...offers]
+const cards = shuffle([...facilities, ...offers])
 
 export default class CardContainer extends Component {
   constructor(props) {
