@@ -16,7 +16,7 @@
 .description {
   composes: description from index;
   composes: horizontalPadding;
-  margin: 1.8em 0 2em;
+  margin: 1.8em 0 1.8em;
 }
 
 .paragraph {
