@@ -1,6 +1,6 @@
 @value primary from "./colors";
 
-.html {
+html {
   font-size: 125%;
 }
 

@@ -2,35 +2,39 @@ import React, { Component, PropTypes } from 'react'
 import IconSVG from 'svg-inline-loader/lib/component'
 import classnames from 'classnames'
 
-import styles from 'styles/Card'
+const layouts = require.context('styles/Card', false)
 const covers = require.context('../assets/covers', false)
 const icons = require.context('../assets/icons', false)
 
-const Title = ({title}) => {
-  return <h1 className={styles.title}>{title}</h1>
+const Title = ({title, style}) => {
+  return <h1 className={style.title}>{title}</h1>
 }
 
-const Description = ({description}) => (
-  <div className={styles.description}>
+const Description = ({description, style}) => (
+  <div className={style.description}>
     {description.split('\n').map((paragraph, key) => {
-      return <p className={styles.paragraph} key={key}>{paragraph}</p>
+      return (
+        <p className={style.paragraph} key={key}>
+          {paragraph}
+        </p>
+      )
     })}
   </div>
 )
 
-const Action = ({action}) => {
+const Action = ({action, style}) => {
   return (
-    <div className={styles.action}>
+    <div className={style.action}>
       {action.icon &&
-        <IconSVG src={icons(action.icon)} className={styles.actionIcon} />
+        <IconSVG src={icons(action.icon)} className={style.actionIcon} />
       }
-      <div className={styles.actionLabel}>{action.label}</div>
+      <div className={style.actionLabel}>{action.label}</div>
     </div>
   )
 }
 
-const Cover = ({cover}) => (
-  <div className={styles.cover}>
+const Cover = ({cover, style}) => (
+  <div className={style.cover}>
     <img src={covers(cover.src)} alt={cover.alt} />
   </div>
 )
@@ -39,6 +43,7 @@ export default class Card extends Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    layout: PropTypes.string,
     action: PropTypes.shape({
       label: PropTypes.string.isRequired,
     }),
@@ -53,18 +58,31 @@ export default class Card extends Component {
   }
 
   render() {
-    const {title, description, action, cover} = this.props
+    const {
+      title,
+      description,
+      action,
+      cover,
+      layout = 'vertical',
+    } = this.props
+
     const actionType = action && action.type
-    const className = classnames(styles.card, {
-      [actionType]: actionType,
-    })
+    const style = layouts(`./${layout}`)
+    const className = classnames(
+      style.card,
+    )
 
     return (
       <div className={className}>
-        {title && <Title title={title} />}
-        {description && <Description description={description} />}
-        {cover && <Cover cover={cover}/>}
-        {action && <Action action={action}/>}
+        <div className={style.body}>
+          {title && <Title title={title} style={style}/>}
+          {description && <Description description={description} style={style}/>}
+          {action && <Action action={action} style={style}/>}
+        </div>
+        <div className={style.figure}>
+          {cover && <Cover cover={cover} style={style}/>}
+          {action && <Action action={action} style={style}/>}
+        </div>
       </div>
     )
   }

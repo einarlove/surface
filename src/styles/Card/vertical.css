@@ -1,0 +1,73 @@
+@value index "./index";
+@value horizontalPadding from index;
+@value borderColor from index;
+
+.card {
+  composes: card from index;
+}
+
+.title {
+  composes: horizontalPadding;
+  composes: title from index;
+  margin-top: 1.6em;
+  margin-bottom: .2em;
+}
+
+.description {
+  composes: description from index;
+  composes: horizontalPadding;
+  margin: 1.8em 0 2em;
+}
+
+.paragraph {
+  margin-bottom: .4em;
+}
+
+.title + .description {
+  margin-top: 0;
+}
+
+.cover {
+  composes: cover from index;
+  margin-top: .5em;
+}
+
+.action {
+  composes: action from index;
+  border-top: 1px solid borderColor;
+  transition: .7s background-color ease-out-expo;
+  align-items: center;
+}
+
+.figure .action {
+  display: flex;
+}
+
+.cover + .action {
+  border-top-color: transparent;
+}
+
+.card:hover .action {
+  background-color: #F7F7F7;
+}
+
+.actionLabel {
+  composes: actionLabel from index;
+  display: inline-block;
+  margin-top: .85em;
+  margin-bottom: .9em;
+}
+
+.actionIcon {
+  composes: actionIcon from index;
+  composes: horizontalMargin from index;
+  margin-right: .5em;
+  font-size: 1.1em;
+  width: 1em;
+  height: 1em;
+  margin-top: -.09em;
+}
+
+.actionIcon + .actionLabel {
+  margin-left: 0;
+}

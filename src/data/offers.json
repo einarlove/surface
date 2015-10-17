@@ -1,5 +1,13 @@
 [
   {
+    "title": "En kaffe før du boarder?",
+    "description": "Få en deilig kopp nytraktet kaffe til 15 kr hos Ritazza",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./coffee.jpg"
+    }
+  },
+  {
     "title": "Is til barna",
     "description": "Hos Monolitten får barna is når de voksne handler.",
     "action": {
@@ -18,11 +26,21 @@
     }
   },
   {
-    "title": "En kaffe før du boarder?",
-    "description": "Få en deilig kopp nytraktet kaffe til 15 kr hos Ritazza"
-  },
-  {
     "title": "Slapp av i loungen",
     "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke."
+  },
+  {
+    "title": "Pølse før reisen",
+    "description": "Hos Franks serverer de gode pølser med variert tilbehør. Vi gir deg 30% avslag på ale pølsene.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./franks.jpg"
+    },
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    }
   }
 ]

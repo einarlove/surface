@@ -1,0 +1,45 @@
+@value index "./index";
+@value vertical "./vertical";
+@value  actionLabel, actionIcon from vertical;
+
+.card {
+  composes: card from vertical;
+  display: flex;
+}
+
+.title {
+  composes: title from vertical;
+}
+
+.description {
+  composes: description from vertical;
+}
+
+.action {
+  composes: action from vertical;
+}
+
+.body {
+  flex: 3;
+}
+
+.body .action {
+  display: flex;
+  font-size: 0.9em;
+}
+
+.figure {
+  position: relative;
+  flex: 2;
+}
+
+.cover {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  composes: cover from index;
+}
+
+.cover img {
+  object-fit: cover;
+  height: 100%;
+}
