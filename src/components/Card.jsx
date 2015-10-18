@@ -51,6 +51,7 @@ export default class Card extends Component {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
     }),
+    transition: PropTypes.number.isRequired,
   }
 
   constructor(props) {
@@ -72,8 +73,12 @@ export default class Card extends Component {
       style.card,
     )
 
+    const dynamicStyle = {
+      opacity: this.props.transition,
+    }
+
     return (
-      <div className={className}>
+      <div className={className} style={dynamicStyle}>
         <div className={style.body}>
           {title && <Title title={title} style={style}/>}
           {description && <Description description={description} style={style}/>}
