@@ -10,6 +10,7 @@ import find from 'lodash/collection/find'
 import first from 'lodash/array/first'
 import difference from 'lodash/array/difference'
 import uniqueId from 'lodash/utility/uniqueId'
+import reject from 'lodash/collection/reject'
 import Card from './Card'
 
 const cards = shuffle([...facilities, ...offers]).map(card => {
@@ -28,7 +29,7 @@ export default class CardContainer extends Component {
 
   addCard() {
     const newCard = first(difference(cards, this.state.cards))
-    if(!newCard) {return false}
+    if (!newCard) {return false}
     this.setState({
       cards: [newCard, ...this.state.cards],
     })
@@ -41,16 +42,23 @@ export default class CardContainer extends Component {
     }
   }
 
-  cardWillLeave() {
+  cardWillLeave(id, transition) {
     return {
-      x: 0,
+      transition: spring(0),
+      card: transition.card,
     }
+  }
+
+  removeCard(id) {
+    this.setState({
+      cards: reject([...this.state.cards], {id}),
+    })
   }
 
   getStyles() {
     return reduce(this.state.cards, (result, card) => {
       result[card.id] = {
-        transition: spring(1, [50, 25]),
+        transition: spring(1, [200, 25]),
         card,
       }
       return result
@@ -64,11 +72,19 @@ export default class CardContainer extends Component {
         <TransitionMotion
           styles={this.getStyles()}
           willEnter={::this.cardWillEnter}
+          willLeave={::this.cardWillLeave}
         >
           { transitions => (
             <div>
               { map(transitions, ({transition, card}) => {
-                return <Card key={card.id} transition={transition} {...card} />
+                return (
+                  <Card
+                    key={card.id}
+                    transition={transition}
+                    removeSelf={this.removeCard.bind(this, card.id)}
+                    {...card}
+                  />
+                )
               })}
             </div>
             )

@@ -52,6 +52,7 @@ export default class Card extends Component {
       alt: PropTypes.string,
     }),
     transition: PropTypes.number.isRequired,
+    removeSelf: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -73,20 +74,23 @@ export default class Card extends Component {
       style.card,
     )
 
-    const dynamicStyle = {
-      opacity: this.props.transition,
+    const outerStyle = {
+      height: this.props.transition * (this.refs.inner ? this.refs.inner.offsetHeight : 0),
+      overflow: 'hidden',
     }
 
     return (
-      <div className={className} style={dynamicStyle}>
-        <div className={style.body}>
-          {title && <Title title={title} style={style}/>}
-          {description && <Description description={description} style={style}/>}
-          {action && <Action action={action} style={style}/>}
-        </div>
-        <div className={style.figure}>
-          {cover && <Cover cover={cover} style={style}/>}
-          {action && <Action action={action} style={style}/>}
+      <div ref="outer" style={outerStyle} className={className}>
+        <div ref="inner" onClick={this.props.removeSelf}>
+          <div className={style.body}>
+            {title && <Title title={title} style={style}/>}
+            {description && <Description description={description} style={style}/>}
+            {action && <Action action={action} style={style}/>}
+          </div>
+          <div className={style.figure}>
+            {cover && <Cover cover={cover} style={style}/>}
+            {action && <Action action={action} style={style}/>}
+          </div>
         </div>
       </div>
     )

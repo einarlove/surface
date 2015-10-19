@@ -9,7 +9,7 @@
 .title {
   composes: horizontalPadding;
   composes: title from index;
-  margin-top: 1.6em;
+  padding-top: 1.6em;
   margin-bottom: .2em;
 }
 

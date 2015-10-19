@@ -13,6 +13,10 @@
   transition: box-shadow .7s ease-out-cubic, transform .5s ease-out-expo;
 }
 
+.card > div > div {
+  overflow: auto;
+}
+
 .card:hover {
   box-shadow: 0 0 30px 0px rgba(197, 201, 204, 0.81);
   cursor: pointer;
