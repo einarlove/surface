@@ -1,5 +1,6 @@
 import webpack from 'webpack'
 import path from 'path'
+import reduce from 'lodash/collection/reduce'
 
 const debug = process.env.NODE_ENV !== 'production'
 const devtool = debug ? 'eval' : 'hidden-source-map'
@@ -51,8 +52,18 @@ const loaders = [
   },
 ]
 
+const env = {
+  'NODE_ENV': debug ? 'development' : 'production',
+}
+
 const plugins = [
   new webpack.PrefetchPlugin('react'),
+  new webpack.DefinePlugin(reduce(env, (prop, value, key) => {
+    if (value) {
+      prop['process.env.' + key] = JSON.stringify(value)
+    }
+    return prop
+  }, {})),
 ]
 
 const resolve = {

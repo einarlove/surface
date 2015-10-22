@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
+import fastclick from 'fastclick'
 
 import 'styles/reset'
 import 'styles/fonts'
 import { application } from 'styles/Application'
 
-import CardContainer from './CardContainer'
+import StackedLayout from './StackedLayout'
 
 export default class Application extends Component {
   constructor(props) {
     super(props)
   }
 
+  componentDidMount() {
+    fastclick.attach(document.body)
+  }
+
   render() {
     return (
       <div className={application}>
-        <CardContainer />
+        <StackedLayout />
       </div>
     )
   }

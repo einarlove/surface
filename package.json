@@ -15,6 +15,7 @@
     "css-loader": "^0.19.0",
     "dev-server": "git://github.com/unfold/dev-server",
     "express": "^4.13.3",
+    "fastclick": "^1.0.6",
     "file-loader": "^0.8.4",
     "json-loader": "^0.5.3",
     "lodash": "^3.10.1",
@@ -25,6 +26,8 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-motion": "^0.3.1",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.3",
     "style-loader": "^0.12.4",
     "svg-inline-loader": "^0.3.0",
     "url-loader": "^0.5.6",
@@ -56,7 +59,8 @@
     "eslint-config-airbnb": "^0.1.0",
     "eslint-config-unfold": "git://github.com/unfold/eslint-config",
     "eslint-plugin-react": "^3.5.1",
-    "react-hot-loader": "^1.3.0"
+    "react-hot-loader": "^1.3.0",
+    "redux-immutable-state-invariant": "^1.1.1"
   },
   "author": "",
   "license": "ISC"
