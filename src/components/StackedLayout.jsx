@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { TransitionMotion, spring, presets } from 'react-motion'
 import StackedItem from './StackedItem'
-import map from 'lodash/collection/map'
-import reduce from 'lodash/collection/reduce'
 import { connect } from 'react-redux'
 import { addItem, removeItem } from '../actions'
 
@@ -35,71 +32,47 @@ export default class StackedLayout extends Component {
   }
 
   addItem() {
-    this.props.dispatch(addItem())
+    this.props.dispatch(addItem({
+      text: 'bob',
+    }))
   }
 
-  itemWillLeave(key, transition) {
-    return {
-      id: key,
-      height: spring(0),
-      item: transition.item,
-    }
-  }
+  renderItems() {
+    let offset = 0
+    return this.props.items.map(({item, id}) => {
+      const y = offset + MARGIN
+      offset = y + this.state.heightMap[id] || 0
 
-  getStyles() {
-    let lastStyle = null
-    let accumulatedPosition = 0
-    return reduce(this.props.items, (styles, item) => {
-      let x = 0
-      if (lastStyle && lastStyle.height) {
-        accumulatedPosition += lastStyle.height + MARGIN
-        x = accumulatedPosition
-      }
-
-      lastStyle = styles[item.id] = {
-        item,
-        x: spring(x, presets.stiff),
-        height: this.state.heightMap[item.id],
-      }
-
-      return styles
-    }, {})
-  }
-
-  renderItem({item, x}) {
-    return (
-      <StackedItem
-        item={item}
-        x={x}
-        key={item.id}
-        registerHeight={this.registerItemHeight.bind(this, item.id)}
-        removeSelf={() => {
-          this.props.dispatch(removeItem(item.id))
-        }}
-      />
-    )
+      return (
+        <StackedItem
+          item={item}
+          y={y}
+          key={id}
+          registerHeight={this.registerItemHeight.bind(this, id)}
+          removeSelf={() => {
+            this.props.dispatch(removeItem(id))
+          }}
+        />
+      )
+    })
   }
 
   render() {
+    const height = this.props.items.reduce((total, item) => {
+      return total + MARGIN + this.state.heightMap[item.id] || 0
+    }, MARGIN)
+
     const style = {
       position: 'relative',
       backgroundColor: '#efefef',
+      height: height,
     }
-
     return (
-      <div>
-        <button style={{padding: 20}} onClick={::this.addItem}>Add item</button>
-        <TransitionMotion
-          styles={::this.getStyles}
-        >
-          {transition => {
-            return (
-              <div style={style}>
-                {map(transition, ::this.renderItem)}
-              </div>
-            )
-          }}
-        </TransitionMotion>
+      <div style={{margin: '1em'}}>
+        <button onClick={::this.addItem}>Add item</button>
+          <div style={style}>
+            {this.renderItems()}
+          </div>
       </div>
     )
   }

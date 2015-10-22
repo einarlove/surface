@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import pureRender from '../utils/pureRender'
+import { Motion, spring, presets } from 'react-motion'
 
 @pureRender
 export default class StackedItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
-    x: PropTypes.number,
+    y: PropTypes.number,
     registerHeight: PropTypes.func.isRequired,
     removeSelf: PropTypes.func.isRequired,
   }
@@ -15,6 +16,7 @@ export default class StackedItem extends Component {
 
     this.state = {
       expanded: false,
+      height: 100,
     }
   }
 
@@ -23,45 +25,49 @@ export default class StackedItem extends Component {
   }
 
   componentDidUpdate() {
-    this.registerHeight()
+    this.registerHeight(this.state.height)
   }
 
-  registerHeight() {
-    const { item: refItem } = this.refs
-
-    if (refItem) {
-      this.props.registerHeight(refItem.offsetHeight)
+  registerHeight(height) {
+    if (this.itemRef) {
+      this.props.registerHeight(height || this.itemRef.offsetHeight)
     }
   }
 
   expand() {
-    this.setState({ expanded: !this.state.expanded })
+    this.setState({
+      expanded: !this.state.expanded,
+      height: this.state.expanded ? 100 : 150,
+     })
   }
 
   render() {
-    const style = {
-      backgroundColor: '#aaa',
-      width: '20em',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      transform: `translate3d(0, ${this.props.x}px, 0)`,
-    }
-
     return (
-      <div
-        ref="item"
-        style={style}
-      >
-        <div
-          style={{height: '8em', background: '#999'}}
-          onClick={this.props.removeSelf}
-        />
-        <div
-          style={{height: this.state.expanded ? '8em' : '2em'}}
-          onClick={::this.expand}
-        />
-      </div>
+      <Motion style={{
+        y: spring(this.props.y, [120, 15]),
+        height: spring(this.state.height, [120, 15]),
+      }}>
+        {({y, height}) => (
+          <div
+            ref={ref => this.itemRef = ref}
+            style={{
+              backgroundColor: '#aaa',
+              width: '20em',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: height,
+              transform: `translate3d(0, ${y}px, 0)`,
+            }}
+            onClick={::this.expand}
+          >
+            <div
+              style={{height: '2em', background: '#999'}}
+              onClick={this.props.removeSelf}
+            />
+          </div>
+        )}
+      </Motion>
     )
   }
 }
