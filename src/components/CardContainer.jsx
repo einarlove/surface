@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
-import styles from 'styles/CardContainer'
-import facilities from '../data/facilities.json'
-import offers from '../data/offers.json'
-import shuffle from 'lodash/collection/shuffle'
-
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import prioritizedCardsReducer from '../reducers/prioritizedCardsReducer'
+import RelevancePanelContainer from './RelevancePanelContainer'
 import Card from './Card'
+import styles from 'styles/CardContainer'
 
-const cards = shuffle([...facilities, ...offers])
-
+@connect(state => ({
+  cards: prioritizedCardsReducer(state),
+}))
 export default class CardContainer extends Component {
+  static propTypes = {
+    cards: PropTypes.array,
+  }
+
   constructor(props) {
     super(props)
   }
@@ -16,7 +20,13 @@ export default class CardContainer extends Component {
   render() {
     return (
       <div className={styles.cardContainer}>
-        {cards.map((card, key) => <Card key={key} {...card} />)}
+        {this.props.cards.map((card, key) => {
+          return (
+            <RelevancePanelContainer meta={card.meta} key={key}>
+              <Card key={key} {...card} />
+            </RelevancePanelContainer>
+          )
+        })}
       </div>
     )
   }

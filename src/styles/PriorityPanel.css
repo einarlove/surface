@@ -1,0 +1,47 @@
+.form {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.rightAligned {
+  right: 1em;
+  left: auto;
+}
+
+.item {
+  display: block;
+  margin: .6em 0;
+}
+
+.form label {
+  display: block;
+}
+
+.form select {
+  outline:none;
+  border:none;
+  background-color: transparent;
+  -webkit-appearance:none;
+  font-size: inherit;
+  color: inherit;
+}
+
+.selectItem {
+  composes: item;
+}
+
+.selectItem::before {
+  content: '\25BE';
+  opacity: .7;
+}
+
+.labelText,
+.form select {
+  font-size: .9em;
+  letter-spacing: .06em;
+  margin: 0 .3em;
+}

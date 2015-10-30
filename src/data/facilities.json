@@ -1,13 +1,20 @@
 [
   {
     "name": "Jobbsone",
-    "description": "Kommer du litt tidligere kan du jobbe eller surfe i jobbsonen nær gate 20 som er 5 min fra din gate.",
+    "description": "Kommer du litt tidligere kan du jobbe eller surfe i jobbsonen nær gate 56 som er 5 min fra din gate.",
     "cover": {
       "src": "./workzone.jpg"
     },
     "action": {
       "label": "Finn veien til jobbsonen",
       "icon": "./map.svg"
+    },
+    "meta": {
+      "trip-type": "business",
+      "duration": "30 minutes",
+      "direction": "departure",
+      "international": true,
+      "gate": 56
     }
   },
   {
@@ -20,6 +27,22 @@
     "action": {
       "label": "Finn ammehjørnet på kart",
       "icon": "./map.svg"
+    },
+    "meta": {
+      "duration": "15 minutes",
+      "direction": "departure",
+      "gate": 56
+    }
+  },
+  {
+    "name": "Barnevogner",
+    "description": "Vi har gratis barnevogner for store og små ved ingangen etter sikkerhetskontrollen og utland.",
+    "cover": {
+      "src": "./strollers.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "duration": "3 minutes"
     }
   }
 ]

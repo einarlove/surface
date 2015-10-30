@@ -5,6 +5,12 @@
     "layout": "horizontal",
     "cover": {
       "src": "./coffee.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "eatery": true,
+      "duration": "5 minutes",
+      "gate": "14B"
     }
   },
   {
@@ -15,6 +21,12 @@
       "label": "Vis kode når du er i kassen",
       "qrCode": "",
       "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "eatery": true,
+      "duration": "15 minutes",
+      "children": true
     }
   },
   {
@@ -23,11 +35,24 @@
     "description": "Vi serverer god kaffe og smakfulle enkle retter ved gate 13/14. Kom innom da vel!",
     "cover": {
       "src": "./parkenservering.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "eatery": true,
+      "relaxing": true,
+      "duration": "30 minutes"
     }
   },
   {
     "title": "Slapp av i loungen",
-    "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke."
+    "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke.",
+    "meta": {
+      "international": true,
+      "direction": "departure",
+      "eatery": true,
+      "duration": "15 minutes"
+    }
+
   },
   {
     "title": "Pølse før reisen",
@@ -41,6 +66,30 @@
       "label": "Vis kode i kassen",
       "qrCode": "",
       "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "eatery": true,
+      "duration": "10 minutes"
+    }
+  },
+  {
+    "title": "Ta en kaffe før du drar?",
+    "description": "EarlyBirds får halv pris på valgfri kaffe på 7 Eleven ved ankomsthallen",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./coffee.jpg"
+    },
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "arrival",
+      "eatery": true,
+      "duration": "2 minutes"
     }
   }
 ]

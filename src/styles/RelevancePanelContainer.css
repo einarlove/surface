@@ -1,0 +1,50 @@
+.relevancePanelContainer {
+  position: relative;
+  width: 31.6em;
+  max-width: 95%;
+}
+
+
+.relevancePanel {
+  position: absolute;
+  right: 100%;
+  top: .6em;
+  font-size: .75em;
+  text-align: right;
+
+  opacity: 0;
+  transition: .8s ease-in-cubic;
+}
+
+.relevancePanelContainer:hover .relevancePanel{
+  transition: .7s ease-out-cubic;
+  opacity: 1;
+}
+
+.item {
+  white-space: nowrap;
+  margin: .8em 0;
+  line-height: 1;
+}
+
+.keyValue {
+  composes: item;
+}
+
+.singleValue {
+  composes: item;
+}
+
+.title {
+  font-size: 0.9em;
+  display: block;
+}
+
+.value {
+  font-weight: bolder;
+}
+
+.singleValueTitle {
+  composes: value;
+  font-size: 1em;
+}
