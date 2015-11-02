@@ -2,26 +2,43 @@ import sortBy from 'lodash/collection/sortBy'
 import reduce from 'lodash/collection/reduce'
 import filter from 'lodash/collection/filter'
 import pick from 'lodash/object/pick'
+import keys from 'lodash/object/keys'
+
+const RELEVANT = 1
+const LESS_RELEVANT = -1
+const IRRELEVANT = 'IRRELEVANT'
 
 export function getRelevance(priorities, meta) {
-  const positive = pick(priorities, (value, priority) => {
-    return value === meta[priority]
-  })
+  // let basis = reduce(priorities, (total, value, priority) => {
+  //   if (priority === 'direction' && value !== meta[priority]) {
+  //     total[priority] = IRRELEVANT
+  //   }
+
+  //   if (priority === 'international' && value !== meta[priority]) {
+  //     total[priority] = IRRELEVANT
+  //   }
+
+  //   return total
+  // }, {})
+
+  // basis = reduce(meta.relevant, (total, value, priority) => {
+  //   if (priority in priorities && value === priorities[priority]) {
+  //     total[priority] = RELEVANT
+  //   }
+  //   return total
+  // }, basis)
+
+
+  // const score = reduce(basis, (result, value) => result + value, 0)
+  // const score = filter(basis, priority => typeof priority === 'number')
+  //   .reduce((result, value) => result + value, 0)
+
+  console.log(score, basis)
 
   return {
-    score: 0,
-    basis: {
-      positive: [],
-      negative: [],
-      irellevant: [],
-    }
+    score: score,
+    basis: {},
   }
-}
-
-function getPriorityScoreFromMeta(priorities, meta) {
-  return priorities.reduce((result, value, priority) => {
-    return result
-  }, 0)
 }
 
 function prioritize(priority, value, meta) {

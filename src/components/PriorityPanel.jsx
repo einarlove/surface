@@ -92,7 +92,6 @@ export default class PriorityPanel extends Component {
   onChange({ currentTarget }) {
     const data = mapValues(getFormData(currentTarget), value => value === 'on' ? true : value)
 
-    console.log(data)
     if (data.toddlers) {
       data.children = true
     }

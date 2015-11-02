@@ -14,7 +14,10 @@
       "duration": "30 minutes",
       "direction": "departure",
       "international": true,
-      "gate": 56
+      "gate": 56,
+      "lessRelevant": {
+        "children": true
+      }
     }
   },
   {
