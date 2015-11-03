@@ -1,5 +1,6 @@
 import map from 'lodash/collection/map'
 import reduce from 'lodash/collection/reduce'
+import merge from 'lodash/object/merge'
 
 function getEmphasis(questions) {
   return questions.reduce((total, question) => {
@@ -35,6 +36,7 @@ export function getRelevance(emphasis, meta) {
     return total
   }, {})
 
+
   const score = reduce(basis, (total, value) => {
     const newTotal = total * value
     return newTotal
@@ -52,27 +54,32 @@ function hasAndMismatchProperty(property, first, second) {
 }
 
 export default function(state) {
-  const { collection, emphasis, questions } = state.cards
+  const { collection, questions } = state.cards
   const flight = state.flights.current
 
-  // const emphasis = getEmphasis(questions)
-  console.log(emphasis)
+  const emphasis = questions
+    .filter(question => question.answer && question.answer.emphasis)
+    .map(question => question.answer.emphasis)
+    .reduce((total, emph) => {
+      const merged = merge(total, emph, (aa, bb) => (aa || 1) * bb)
+      return merged
+    }, {})
 
   return collection
     .filter(({meta}) => !hasAndMismatchProperty('international', meta, flight))
     .filter(({meta}) => !hasAndMismatchProperty('direction', meta, flight))
     .map(card => ({
       card,
-      relevance: getRelevance(emphasis, card.meta)
+      relevance: getRelevance(emphasis, card.meta),
     }))
+    .sort((right, left) => {
+      if (left.relevance.score < left.relevance.score) {
+        return -1
+      }
+      if (right.relevance.score > left.relevance.score) {
+        return 1
+      }
+      return 0
+    })
+    .reverse()
 }
-
-// export default function(state) {
-//   const { collection, priorities } = state.cards
-
-//   return sortBy(collection, ({meta = {}}) => {
-//     return reduce(priorities, (result, value, priority) => {
-//       return result + prioritize(priority, value, meta)
-//     }, 0)
-//   }).reverse()
-// }

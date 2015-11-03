@@ -40,6 +40,15 @@ const Cover = ({cover, style}) => (
   </div>
 )
 
+const Relevance = ({relevance: {score, basis}, style}) => (
+  <div className={style.description}>
+    <h2>Score: <strong>{score}</strong></h2>
+    {map(basis, (value, property) => (
+      <div> {`${property} ${value}`}</div>
+    ))}
+  </div>
+)
+
 export default class Card extends Component {
   static propTypes = {
     title: PropTypes.string,
@@ -81,12 +90,8 @@ export default class Card extends Component {
       <div className={className}>
         <div className={style.body}>
           {title && <Title title={title} style={style}/>}
-          {relevance && <div>{relevance.score}</div>}
-          {relevance && relevance.basis && map(relevance.basis, (value, property) => (
-            <div key={property}>
-              <span>{property}</span><strong>{value}</strong>
-            </div>
-          ))}
+
+          {relevance && <Relevance relevance={relevance} style={style} />}
           {description && <Description description={description} style={style}/>}
           <div className={style.description}>
             {map(meta, (value, property) =>

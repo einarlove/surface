@@ -21,8 +21,6 @@ function getEmphasis(name, value) {
       children: 1.3,
     }, {
       children: 0,
-    }, {
-
     })
   default: break
   }

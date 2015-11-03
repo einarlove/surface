@@ -35,8 +35,8 @@ export default class questionsPanel extends Component {
           <button
             key={option.label}
             type="button"
-            className={option.value === question.answer ? styles.optionButtonActive : styles.optionButton}
-            onClick={this.onAnswer.bind(this, question.name, option.value)}
+            className={question.answer && option.value === question.answer.value ? styles.optionButtonActive : styles.optionButton}
+            onClick={this.onAnswer.bind(this, question.name, option)}
           >{option.label}</button>
         ))}
       </div>

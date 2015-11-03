@@ -153,7 +153,8 @@
       "direction": "departure",
       "international": true,
       "duration": "30 minutes",
-      "eatery": true
+      "eatery": true,
+      "bar": true
     }
   },
 
