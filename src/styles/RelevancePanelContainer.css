@@ -11,7 +11,7 @@
   font-size: .75em;
   text-align: right;
 
-  opacity: 0;
+  opacity: .5;
   transition: .8s ease-in-cubic;
 }
 

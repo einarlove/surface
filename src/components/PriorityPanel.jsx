@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react'
-import { setPriority } from '../actions/cards'
+import { setEmphasis } from '../actions/cards'
+import { setCurrentFlight } from '../actions/flights'
 import { connect } from 'react-redux'
 import startCase from 'lodash/string/startCase'
 import classnames from 'classnames'
 import getFormData from 'get-form-data'
 import mapValues from 'lodash/object/mapValues'
-import gates from '../data/gates'
 
 import styles from 'styles/PriorityPanel'
 
-function applyPriority(priorities, name) {
+function applyProperty(property, name) {
   return {
     name,
-    value: priorities[name],
+    value: property[name],
   }
 }
 
@@ -69,11 +69,15 @@ const Select = props => {
 
 
 @connect(state => ({
-  priorities: state.cards.priorities,
+  emphasis: state.cards.emphasis,
+  questions: state.cards.questions,
+  flight: state.flights.current,
 }))
 export default class PriorityPanel extends Component {
   static propTypes = {
-    priorities: PropTypes.object.isRequired,
+    emphasis: PropTypes.object.isRequired,
+    questions: PropTypes.object.isRequired,
+    flight: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     right: PropTypes.bool,
   }
@@ -83,20 +87,32 @@ export default class PriorityPanel extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(setPriority({
-      children: true,
-      international: true,
+    this.props.dispatch(setEmphasis({
+      children: 0.8,
     }))
+
+    this.props.dispatch(setCurrentFlight({
+      direction: 'departure',
+      international: true,
+      scheduleTime: '2015-11-05T15:30:00',
+    }))
+
+    console.log(this.props.questions)
   }
 
-  onChange({ currentTarget }) {
+  onFlightChange({ currentTarget }) {
+    const data = mapValues(getFormData(currentTarget), value => value === 'on' ? true : value)
+    this.props.dispatch(setCurrentFlight(data))
+  }
+
+  onQuestionsChange({ currentTarget }) {
     const data = mapValues(getFormData(currentTarget), value => value === 'on' ? true : value)
 
     if (data.toddlers) {
       data.children = true
     }
 
-    this.props.dispatch(setPriority(data))
+    this.props.dispatch(setEmphasis(data))
   }
 
   renderCheckbox() {
@@ -109,26 +125,24 @@ export default class PriorityPanel extends Component {
   }
 
   render() {
-    const { priorities } = this.props
-    const className = classnames(styles.form, {
+    const { emphasis, flight } = this.props
+    const className = classnames(styles.container, {
       [styles.rightAligned]: this.props.right,
     })
 
     return (
-      <form className={className} onChange={::this.onChange}>
-        <Group>
-          <Checbox label="Has eaten" {...applyPriority(priorities, 'has eaten')} />
-        </Group>
-        <Group>
-          <Checbox {...applyPriority(priorities, 'companions')} />
-          <Checbox {...applyPriority(priorities, 'children')} />
-          <Checbox {...applyPriority(priorities, 'toddlers')} />
-        </Group>
-        <Select options={['business', 'holiday']} {...applyPriority(priorities, 'trip-type')} />
-        <Checbox {...applyPriority(priorities, 'international')} />
-        <Radio options={['departure', 'arrival']} {...applyPriority(priorities, 'direction')} />
-        <Select options={gates} {...applyPriority(priorities, 'gate')} />
-      </form>
+      <div className={className} >
+        <form className={styles.form} onChange={::this.onFlightChange}>
+          <h1>Flight</h1>
+          <Radio options={['departure', 'arrival']} {...applyProperty(flight, 'direction')} />
+          <Checbox {...applyProperty(flight, 'international')} />
+        </form>
+
+        <form className={styles.form} onChange={::this.onQuestionsChange}>
+          <h1>Questions</h1>
+          <Radio options={['Children', 'No children']} {...applyProperty(emphasis, 'children')} />
+        </form>
+      </div>
     )
   }
 }

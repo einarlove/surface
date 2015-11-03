@@ -1,7 +1,10 @@
-.form {
+.container {
   position: fixed;
-  top: 1em;
   left: 1em;
+}
+
+.form {
+  margin-top: 1em;
   padding: 1em;
   border: 1px solid #ccc;
   background-color: white;

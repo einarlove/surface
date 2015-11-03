@@ -1,0 +1,251 @@
+[
+  {
+    "title": "kaffe innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "5 minutes"
+    }
+  },
+  {
+    "title": "kaffe utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "5 minutes"
+    }
+  },
+  {
+    "title": "fastfood innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "15 minutes"
+    }
+  },
+  {
+    "title": "fastfood utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "15 minutes"
+    }
+  },
+  {
+    "title": "spisested innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "20 minutes"
+    }
+  },
+  {
+    "title": "spisested utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "20 minutes"
+    }
+  },
+  {
+    "title": "barnemat innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "20 minutes",
+      "children": true
+    }
+  },
+  {
+    "title": "barnemat utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "20 minutes",
+      "children": true
+    }
+  },
+  {
+    "title": "butikk herre innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "15 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "butikk herre utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "15 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "butikk dame innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "15 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "butikk dame utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "15 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "Travel value innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "20 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "Duty free utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "20 minutes",
+      "shopping": true
+    }
+  },
+  {
+    "title": "Mat gruppe innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "30 minutes",
+      "eatery": true,
+      "companions": true
+    }
+  },
+  {
+    "title": "Mat gruppe utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "30 minutes",
+      "eatery": true,
+      "companions": true
+    }
+  },
+  {
+    "title": "Lounge utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "30 minutes",
+      "eatery": true
+    }
+  },
+
+
+  {
+    "title": "Ventid i sikkerhetskontroll",
+    "meta": {
+      "direction": "departure"
+    }
+  },
+  {
+    "title": "Gangavstand til gate",
+    "meta": {
+      "direction": "departure"
+    }
+  },
+  {
+    "title": "Tips'n tricks",
+    "meta": {
+      "direction": "departure"
+    }
+  },
+  {
+    "title": "Baggasje status",
+    "meta": {
+      "direction": "arrival"
+    }
+  },
+
+
+
+  {
+    "title": "Lekeplass utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "children": true
+    }
+  },
+  {
+    "title": "Lekeplass innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "children": true
+    }
+  },
+  {
+    "title": "Familie-sluse",
+    "meta": {
+      "direction": "departure",
+      "children": true
+    }
+  },
+  {
+    "title": "Barnevogner",
+    "meta": {
+      "direction": "departure",
+      "children": true
+    }
+  },
+  {
+    "title": "Ammehjørne innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "15 minutes"
+    }
+  },
+  {
+    "title": "Jobbesone",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "30 minutes"
+    }
+  },
+  {
+    "title": "Parken innland",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "15 minutes",
+      "eatery": true
+    }
+  },
+  {
+    "title": "Sitteområde bak passkont. utland",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "10 minutes"
+    }
+  }
+]

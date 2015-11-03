@@ -8,11 +8,11 @@ import omit from 'lodash/object/omit'
 import styles from 'styles/RelevancePanelContainer'
 
 @connect(state => ({
-  priorities: state.cards.priorities,
+  emphasis: state.cards.emphasis,
 }))
 export default class RelevancePanelContainer extends Component {
   static propTypes = {
-    priorities: PropTypes.object.isRequired,
+    emphasis: PropTypes.object.isRequired,
     meta: PropTypes.object,
     children: PropTypes.node,
   }
@@ -39,20 +39,15 @@ export default class RelevancePanelContainer extends Component {
   }
 
   render() {
-    const { children, priorities, meta } = this.props
-    // const relevance = getRelevance(priorities, meta)
-    // console.log(relevance)
-    const { relevant, lessRelevant, irrelevant, ...other } = meta
-
+    const { children, emphasis, meta } = this.props
+    const relevance = getRelevance(emphasis, meta)
 
     return (
       <div className={styles.relevancePanelContainer}>
         {children}
 
         <div className={styles.relevancePanel}>
-          {map(other, this.renderList)}
-          {map(relevant, this.renderList)}
-          {map(lessRelevant, this.renderList)}
+          {map(meta, this.renderList)}
         </div>
       </div>
     )

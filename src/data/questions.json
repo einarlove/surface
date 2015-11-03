@@ -1,0 +1,46 @@
+[
+  {
+    "name": "children",
+    "title": "Har du med småbarn på reisen?",
+    "options": [{
+      "label": "Ja",
+      "value": true
+    }, {
+      "label": "Nei",
+      "value": false
+    }]
+  },
+  {
+    "name": "business",
+    "title": "Er dette en foretningsreise?",
+    "options": [{
+      "label": "Ja",
+      "value": true
+    }, {
+      "label": "Nei",
+      "value": false
+    }]
+  },
+  {
+    "name": "companions",
+    "title": "Har du med reisefølge?",
+    "options": [{
+      "label": "Ja",
+      "value": true
+    }, {
+      "label": "Nei",
+      "value": false
+    }]
+  },
+  {
+    "name": "hungry",
+    "title": "Er du sulten?",
+    "options": [{
+      "label": "Kjempesulten",
+      "value": true
+    }, {
+      "label": "Mett",
+      "value": false
+    }]
+  }
+]

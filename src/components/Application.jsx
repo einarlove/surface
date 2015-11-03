@@ -4,7 +4,7 @@ import 'styles/reset'
 import 'styles/fonts'
 import { application } from 'styles/Application'
 
-import PriorityPanel from './PriorityPanel'
+import PanelsContainer from './debug/PanelsContainer'
 import CardContainer from './CardContainer'
 
 export default class Application extends Component {
@@ -15,7 +15,7 @@ export default class Application extends Component {
   render() {
     return (
       <div className={application}>
-        <PriorityPanel right />
+        <PanelsContainer />
         <CardContainer />
       </div>
     )

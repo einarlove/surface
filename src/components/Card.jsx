@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import IconSVG from 'svg-inline-loader/lib/component'
 import classnames from 'classnames'
+import map from 'lodash/collection/map'
 
 const layouts = require.context('styles/Card', false)
 const covers = require.context('../assets/covers', false)
@@ -51,6 +52,8 @@ export default class Card extends Component {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
     }),
+    meta: PropTypes.object,
+    relevance: PropTypes.object,
   }
 
   constructor(props) {
@@ -63,6 +66,8 @@ export default class Card extends Component {
       description,
       action,
       cover,
+      meta,
+      relevance,
       layout = 'vertical',
     } = this.props
 
@@ -76,7 +81,18 @@ export default class Card extends Component {
       <div className={className}>
         <div className={style.body}>
           {title && <Title title={title} style={style}/>}
+          {relevance && <div>{relevance.score}</div>}
+          {relevance && relevance.basis && map(relevance.basis, (value, property) => (
+            <div key={property}>
+              <span>{property}</span><strong>{value}</strong>
+            </div>
+          ))}
           {description && <Description description={description} style={style}/>}
+          <div className={style.description}>
+            {map(meta, (value, property) =>
+              <div key={property}>{property} <strong>{value}</strong></div>
+            )}
+          </div>
           {action && <Action action={action} style={style}/>}
         </div>
         <div className={style.figure}>
