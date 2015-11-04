@@ -44,7 +44,7 @@ const Relevance = ({relevance: {score, basis}, style}) => (
   <div className={style.description}>
     <h2>Score: <strong>{score}</strong></h2>
     {map(basis, (value, property) => (
-      <div> {`${property} ${value}`}</div>
+      <div key={property}> {`${property} ${value}`}</div>
     ))}
   </div>
 )
@@ -87,7 +87,7 @@ export default class Card extends Component {
     )
 
     return (
-      <div className={className}>
+      <div className={className} style={{opacity: relevance.score > 0.3 ? 1 : 0.5}}>
         <div className={style.body}>
           {title && <Title title={title} style={style}/>}
 
