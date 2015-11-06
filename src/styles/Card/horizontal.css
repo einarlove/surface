@@ -19,6 +19,10 @@
   composes: action from vertical;
 }
 
+.paragraph {
+  composes: paragraph from index;
+}
+
 .body {
   flex: 3;
 }

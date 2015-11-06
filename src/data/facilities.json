@@ -8,6 +8,12 @@
     "action": {
       "label": "Finn veien til jobbsonen",
       "icon": "./map.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "duration": "PT20M",
+      "workFriendly": true
     }
   },
   {
@@ -20,6 +26,12 @@
     "action": {
       "label": "Finn ammehjørnet på kart",
       "icon": "./map.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "duration": "PT10M",
+      "children": true
     }
   }
 ]

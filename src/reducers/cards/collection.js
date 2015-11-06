@@ -1,10 +1,14 @@
 import dummyCards from '../../data/dummy-cards.json'
 import uniqueId from 'lodash/utility/uniqueId'
-dummyCards.forEach(card => {
+import offers from '../../data/offers.json'
+import facilities from '../../data/facilities.json'
+
+const cards = [...offers, ...facilities].map(card => {
   card.id = uniqueId('card_')
+  return card
 })
 
-export default function collection(state = dummyCards, action) {
+export default function collection(state = cards, action) {
   switch (action.type) {
 
   default:

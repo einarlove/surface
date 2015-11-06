@@ -20,7 +20,7 @@
 }
 
 .paragraph {
-  margin-bottom: .4em;
+  composes: paragraph from index;
 }
 
 .title + .description {

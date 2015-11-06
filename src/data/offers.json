@@ -1,10 +1,104 @@
 [
   {
     "title": "En kaffe før du boarder?",
-    "description": "Få en deilig kopp nytraktet kaffe til 15 kr hos Ritazza",
+    "description": "Få en deilig kopp nytraktet kaffe til 15 kr hos Ritazza.",
     "layout": "horizontal",
     "cover": {
       "src": "./coffee.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "PT5M"
+    }
+  },
+  {
+    "title": "News bar",
+    "description": "Her får du kaffe, ferske brødvarer, smørbrød og salater. Baren har alle rettigheter samt et stort utvalg av kioskvarer.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./news-bar.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "PT5M"
+    }
+  },
+  {
+    "title": "Baguette on the go",
+    "description": "EarlyBirds som kjøper Baguettes på Upper Crust får valgfri drikke med på kjøpet.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./upper-crust-baguette.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "PT10M"
+    },
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode når du er i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    }
+  },
+  {
+    "description": "Ta med reisefølget ditt og nyt en stor valgfri pizza med 50% rabatt hos Pizza Hut.",
+    "cover": {
+      "src": "./pizza-hut.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "PT25M",
+      "companions": true
+    },
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode når du er i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    }
+  },
+  {
+    "title": "Slapp av ved baren",
+    "description": "Sinnataggen tilbyr full barmeny med snacks og kaffe. De kan også tilby større lokaler for møterom med servering.",
+    "cover": {
+      "src": "./sinnataggen.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "eatery": true,
+      "bar": true,
+      "duration": "PT30M",
+      "companions": true
+    },
+    "action": {
+      "label": "Book et møterom",
+      "icon": "./phone.svg"
+    }
+  },
+  {
+    "title": "O'Learys",
+    "description": "Den eneste sportsbaren på flyplassen som har alle rettigheter både på drikke og tv-sendinger.\n Menyen består av alt fra hamburgere, sparerubs, glutenfritt, vegetarsk og barnemenyer.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./olearys.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "PT25M",
+      "companions": true,
+      "children": true,
+      "bar": true
     }
   },
   {
@@ -15,6 +109,12 @@
       "label": "Vis kode når du er i kassen",
       "qrCode": "",
       "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "PT20M"
     }
   },
   {
@@ -23,11 +123,25 @@
     "description": "Vi serverer god kaffe og smakfulle enkle retter ved gate 13/14. Kom innom da vel!",
     "cover": {
       "src": "./parkenservering.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "PT10M",
+      "workFriendly": true
     }
   },
   {
     "title": "Slapp av i loungen",
-    "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke."
+    "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke.",
+    "meta": {
+      "direction": "departure",
+      "international": true,
+      "eatery": true,
+      "duration": "PT30M",
+      "workFriendly": true
+    }
   },
   {
     "title": "Pølse før reisen",
@@ -41,6 +155,63 @@
       "label": "Vis kode i kassen",
       "qrCode": "",
       "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "eatery": true,
+      "duration": "PT10M"
+    }
+  },
+  {
+    "title": "Accessorize",
+    "description": "Accessorize har et stort utvalg av moteriktig tilbehør som smykker, vesker, hatter og skjerf til barn og voksne. Sortimentet tilpasses årstider og trender.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./accessorize.jpg"
+    },
+    "action": {
+      "label": "Vis accessorize på kartet",
+      "icon": "./map.svg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "shopping": true,
+      "duration": "PT20M"
+    }
+  },
+  {
+    "title": "Trenger du en ekstra skjorte? ",
+    "description": "På Fashion som ligger rett ved sikkerhetskontrollen får du et slips med på kjøpet av en ny skjorte.\n Du velger selv selvsagt.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./fashion-men.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "shopping": true,
+      "duration": "PT15M"
+    }
+  },
+  {
+    "title": "Travel value",
+    "description": "Her kan du handle til samme priser som Duty Free utland på kosmetikk og parfyme, selv om du kun reiser innlands.",
+    "meta": {
+      "direction": "departure",
+      "international": false,
+      "shopping": true,
+      "duration": "PT15M"
+    }
+  },
+  {
+    "title": "Duty free",
+    "description": "Det er altid gode tilbud på Duty free ankomst for store og små. ",
+    "meta": {
+      "direction": "arrival",
+      "shopping": true,
+      "duration": "PT15M"
     }
   }
 ]
