@@ -4,7 +4,7 @@
 
 .card {
   width: 95%;
-  margin: .6em;
+  margin: .6em auto;
   border: 1px solid borderColor;
   background: #FFFFFF;
   max-width: 30em;

@@ -51,7 +51,7 @@ export default class Card extends Component {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
     }),
-    registerHeight: PropTypes.func,
+    registerHeightUpdate: PropTypes.func,
   }
 
   constructor(props) {
@@ -59,11 +59,11 @@ export default class Card extends Component {
   }
 
   componentDidMount() {
-    this.props.registerHeight(this.refs.card.offsetHeight)
+    this.props.registerHeightUpdate()
   }
 
   componentDidUpdate() {
-    this.props.registerHeight(this.refs.card.offsetHeight)
+    this.props.registerHeightUpdate()
   }
 
   render() {
@@ -82,7 +82,7 @@ export default class Card extends Component {
     )
 
     return (
-      <div className={className} ref="card">
+      <div className={className}>
         <div className={style.body}>
           {title && <Title title={title} style={style}/>}
           {description && <Description description={description} style={style}/>}

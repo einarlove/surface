@@ -11,6 +11,7 @@ export default class StackedItems extends Component {
       id: PropTypes.string.isRequired,
     })).isRequired,
     children: PropTypes.func.isRequired,
+    className: PropTypes.string,
   }
 
   constructor(props) {
@@ -72,12 +73,13 @@ export default class StackedItems extends Component {
   render() {
     const style = {
       position: 'relative',
+      height: sum(this.state.registeredHeights),
     }
 
     return (
       <TransitionMotion styles={::this.getStyles}>
         {transition => (
-          <div style={style}>
+          <div style={style} className={this.props.className}>
             {map(transition, trans => (
               <StackedItem
                 {...trans}
@@ -107,18 +109,25 @@ class StackedItem extends Component {
       this.props.position !== nextProps.position
   }
 
+  onHeightUpdate() {
+    if (this.refs.item) {
+      this.props.registerItemHeight(this.refs.item.offsetHeight)
+    }
+  }
+
   render() {
     const {position, item, children} = this.props
     const style = {
       position: 'absolute',
       top: 0,
       left: 0,
+      right: 0,
       transform: `translate3d(0, ${position}px, 0)`,
     }
 
     return (
-      <div style={style}>
-        {children(item, this.props.registerItemHeight)}
+      <div style={style} ref="item">
+        {children(item, ::this.onHeightUpdate)}
       </div>
     )
   }

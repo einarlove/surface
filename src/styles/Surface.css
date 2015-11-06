@@ -1,0 +1,10 @@
+@value softGray from "./colors";
+
+.surface {
+  background-color: softGray;
+}
+
+.list {
+  max-width: 35em;
+  margin: 0 auto;
+}
