@@ -4,7 +4,7 @@ import 'styles/reset'
 import 'styles/fonts'
 import { application } from 'styles/Application'
 
-import CardContainer from './CardContainer'
+import Surface from './Surface'
 
 export default class Application extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Application extends Component {
   render() {
     return (
       <div className={application}>
-        <CardContainer />
+        <Surface />
       </div>
     )
   }

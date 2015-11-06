@@ -1,0 +1,10 @@
+{
+  "execMap": {
+    "js": "node_modules/.bin/babelnode"
+  },
+  "watch": [
+    "webpack.config.js",
+    "server.js",
+    "lib/**/*"
+  ]
+}

@@ -1,35 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import StackedItems from './StackedItems'
+import { connect } from 'react-redux'
+import sortedCardsByRelevanceReducer from '../reducers/sortedCardsByRelevanceReducer'
+
+import Card from './Card'
 
 // import 'styles/Surface'
 
-class Card extends Component {
-  componentDidMount() {
-    this.registerHeight()
-  }
-
-  registerHeight() {
-    this.props.registerHeight(this.refs.card.offsetHeight)
-  }
-
-  render() {
-    return (
-      <div ref="card">
-        <h1 onClick={() => this.registerHeight()}>{this.props.title}</h1>
-      </div>
-    )
-  }
-}
-
+@connect(state => ({
+  cards: sortedCardsByRelevanceReducer(state),
+}))
 export default class Surface extends Component {
-  constructor(props) {
-    super(props)
+  static propTypes = {
+    cards: PropTypes.array.isRequired,
   }
 
   render() {
     return (
-      <StackedItems items={items}>
-        {(item, registerHeight) => <Card registerHeight={registerHeight} {...item.item} />}
+      <StackedItems items={this.props.cards}>
+        {(card, registerHeight) => (
+          <Card
+            {...card.item}
+            registerHeight={registerHeight}
+          />
+        )}
       </StackedItems>
     )
   }
