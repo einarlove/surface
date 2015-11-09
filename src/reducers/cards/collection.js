@@ -1,4 +1,3 @@
-import dummyCards from '../../data/dummy-cards.json'
 import uniqueId from 'lodash/utility/uniqueId'
 import offers from '../../data/offers.json'
 import facilities from '../../data/facilities.json'

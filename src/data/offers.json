@@ -21,6 +21,7 @@
       "src": "./news-bar.jpg"
     },
     "meta": {
+      "baseRelevance": 0.9,
       "direction": "departure",
       "international": true,
       "eatery": true,
@@ -35,6 +36,7 @@
       "src": "./upper-crust-baguette.jpg"
     },
     "meta": {
+      "baseRelevance": 0.9,
       "direction": "departure",
       "international": true,
       "eatery": true,
@@ -53,6 +55,7 @@
       "src": "./pizza-hut.jpg"
     },
     "meta": {
+      "baseRelevance": 1.2,
       "direction": "departure",
       "international": true,
       "eatery": true,
@@ -92,6 +95,7 @@
       "src": "./olearys.jpg"
     },
     "meta": {
+      "baseRelevance": 1.1,
       "direction": "departure",
       "international": true,
       "eatery": true,
@@ -111,6 +115,7 @@
       "icon": "./qrCode.svg"
     },
     "meta": {
+      "baseRelevance": 0.9,
       "direction": "departure",
       "international": false,
       "eatery": true,
@@ -136,9 +141,11 @@
     "title": "Slapp av i loungen",
     "description": "Det er 3 timer til flyet ditt har avgang. Vi gir deg 50% avslag på OSL loungen hvor du får gratis mat og drikke.",
     "meta": {
+      "baseRelevance": 1.2,
       "direction": "departure",
       "international": true,
       "eatery": true,
+      "bar": true,
       "duration": "PT30M",
       "workFriendly": true
     }
@@ -171,14 +178,15 @@
       "src": "./accessorize.jpg"
     },
     "action": {
-      "label": "Vis accessorize på kartet",
+      "label": "Vis på kartet",
       "icon": "./map.svg"
     },
     "meta": {
+      "baseRelevance": 0.8,
       "direction": "departure",
       "international": false,
       "shopping": true,
-      "duration": "PT20M"
+      "duration": "PT15M"
     }
   },
   {
@@ -189,6 +197,7 @@
       "src": "./fashion-men.jpg"
     },
     "meta": {
+      "baseRelevance": 0.8,
       "direction": "departure",
       "international": false,
       "shopping": true,
@@ -199,6 +208,7 @@
     "title": "Travel value",
     "description": "Her kan du handle til samme priser som Duty Free utland på kosmetikk og parfyme, selv om du kun reiser innlands.",
     "meta": {
+      "baseRelevance": 0.8,
       "direction": "departure",
       "international": false,
       "shopping": true,
@@ -209,9 +219,29 @@
     "title": "Duty free",
     "description": "Det er altid gode tilbud på Duty free ankomst for store og små. ",
     "meta": {
+      "baseRelevance": 0.8,
       "direction": "arrival",
       "shopping": true,
       "duration": "PT15M"
+    }
+  },
+  {
+    "title": "Pølse og kaffe",
+    "description": "7-Eleven ved ankomsthallen har tilbud for EarlyBirds hvor du får pølse og kaffe for 35 kr.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./7-eleven.jpg"
+    },
+    "action": {
+      "type": "qrCode",
+      "label": "Vis kode i kassen",
+      "qrCode": "",
+      "icon": "./qrCode.svg"
+    },
+    "meta": {
+      "direction": "arrival",
+      "eatery": true,
+      "duration": "PT10M"
     }
   }
 ]

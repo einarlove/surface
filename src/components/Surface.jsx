@@ -24,6 +24,7 @@ export default class Surface extends Component {
             <Card
               {...card.item}
               registerHeightUpdate={registerHeightUpdate}
+              relevance={card.relevance}
             />
           )}
         </StackedItems>

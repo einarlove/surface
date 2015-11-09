@@ -33,5 +33,67 @@
       "duration": "PT10M",
       "children": true
     }
+  },
+  {
+    "name": "Barnevogner",
+    "description": "Vi har gratis barnevogner for store og små ved ingangen etter sikkerhetskontrollen og utland.",
+    "cover": {
+      "src": "./strollers.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "duration": "PT3M",
+      "children": true
+    }
+  },
+  {
+    "name": "Lekeområde",
+    "description": "På lekeområdene ved innland og utland kan barna ha det litt gøy og strekke seg litt.",
+    "cover": {
+      "src": "./play-area.jpg"
+    },
+    "meta": {
+      "baseRelevance": 0.8,
+      "direction": "departure",
+      "duration": "PT10M",
+      "children": true
+    }
+  },
+  {
+    "title": "Familiesluse",
+    "description": "Alle reisende med barn kan benytte seg av familieslusen ved sikkerhetskontrollen.",
+    "layout": "horizontal",
+    "cover": {
+      "src": "./familiesluse.jpg"
+    },
+    "meta": {
+      "baseRelevance": 1.2,
+      "direction": "departure",
+      "duration": "PT10M",
+      "children": true
+    }
+  },
+  {
+    "title": "Tips til Spania",
+    "description": "Her er noen lure setninger som er bra å ha i baklomma når du ferdes i Spania.\n Hallo! = Hola!\n Tusen takk = Gracias\n Hvor mye koster det? = Cuánto cuesta?\n Hvor er toalettet? = Dónde está el baño?\n Det smaker bra = Huele a mierda",
+    "meta": {
+      "baseRelevance": 0.7,
+      "direction": "departure"
+    }
+  },
+  {
+    "title": "Estimert tid til gate",
+    "description": "10 minutter i sikkerhetskontrollen, 5 minutter til gate 38.",
+    "meta": {
+      "direction": "departure",
+      "duration": "PT15M"
+    }
+  },
+  {
+    "title": "Baggasje status",
+    "description": "Ditt fly har baggasjebånd 3B som venter på å starte.",
+    "meta": {
+      "direction": "arrival"
+    }
   }
 ]

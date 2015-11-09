@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import IconSVG from 'svg-inline-loader/lib/component'
 import classnames from 'classnames'
+import RelevanceInformation from './RelevanceInformation'
+import once from 'lodash/function/once'
 
 const layouts = require.context('styles/Card', false)
 const covers = require.context('../assets/covers', false)
@@ -33,9 +35,9 @@ const Action = ({action, style}) => {
   )
 }
 
-const Cover = ({cover, style}) => (
+const Cover = ({cover, style, onLoad}) => (
   <div className={style.cover}>
-    <img src={covers(cover.src)} alt={cover.alt} />
+    <img onLoad={onLoad} src={covers(cover.src)} alt={cover.alt} />
   </div>
 )
 
@@ -52,18 +54,17 @@ export default class Card extends Component {
       alt: PropTypes.string,
     }),
     registerHeightUpdate: PropTypes.func,
+    relevance: PropTypes.object.isRequired,
   }
 
   constructor(props) {
     super(props)
-  }
 
-  componentDidMount() {
-    this.props.registerHeightUpdate()
+    this.updateHeightOnceOnInitial = once(this.props.registerHeightUpdate)
   }
 
   componentDidUpdate() {
-    this.props.registerHeightUpdate()
+    this.updateHeightOnceOnInitial()
   }
 
   render() {
@@ -73,6 +74,7 @@ export default class Card extends Component {
       action,
       cover,
       layout = 'vertical',
+      relevance,
     } = this.props
 
     const actionType = action && action.type
@@ -82,16 +84,23 @@ export default class Card extends Component {
     )
 
     return (
-      <div className={className}>
-        <div className={style.body}>
-          {title && <Title title={title} style={style}/>}
-          {description && <Description description={description} style={style}/>}
-          {action && <Action action={action} style={style}/>}
+
+      <div>
+        <div className={className} style={{
+          opacity: relevance.score >= 0.4 ? 1 : 0.5,
+        }}>
+          <div className={style.body}>
+            {title && <Title title={title} style={style}/>}
+            {description && <Description description={description} style={style}/>}
+            {action && <Action action={action} style={style}/>}
+          </div>
+          <div className={style.figure}>
+            {cover && <Cover cover={cover} style={style} onLoad={this.props.registerHeightUpdate} />}
+            {action && <Action action={action} style={style}/>}
+          </div>
         </div>
-        <div className={style.figure}>
-          {cover && <Cover cover={cover} style={style}/>}
-          {action && <Action action={action} style={style}/>}
-        </div>
+
+        <RelevanceInformation relevance={relevance} />
       </div>
     )
   }

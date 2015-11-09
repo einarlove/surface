@@ -55,21 +55,6 @@ export default class StackedItems extends Component {
     }, {})
   }
 
-  renderTransitionedItem({ item, position }) {
-    const style = {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      transform: `translate3d(0, ${position}px, 0)`,
-    }
-
-    return (
-      <div style={style}>
-        {this.props.children(item, this.registerItemHeight.bind(this, item.id))}
-      </div>
-    )
-  }
-
   render() {
     const style = {
       position: 'relative',
@@ -122,6 +107,7 @@ class StackedItem extends Component {
       top: 0,
       left: 0,
       right: 0,
+      willChange: 'transform',
       transform: `translate3d(0, ${position}px, 0)`,
     }
 

@@ -1,0 +1,29 @@
+@value lightGray from "./colors";
+
+.container {
+  left: 100%;
+  top: 0;
+  position: absolute;
+  padding-top: .6em;
+}
+
+.score {
+  font-size: 1.1em;
+  font-weight: bolder;
+}
+
+.basisList {
+  margin-top: .2em;
+  padding-top: .2em;
+  border-top: 2px solid lightGray;
+  font-size: 0.8em;
+}
+
+.basisKey {
+
+}
+
+.basisValue {
+  margin-left: .4em;
+  font-weight: bolder;
+}

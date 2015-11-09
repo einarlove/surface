@@ -60,6 +60,10 @@ const getRelevanceBasis = state => {
     const {meta} = card.item
     const basis = pick(emphasis, (val, prop) => prop in meta)
 
+    if (meta.baseRelevance) {
+      basis.baseRelevance = meta.baseRelevance
+    }
+
     if (meta.duration) {
       applyTimeEmphasis(meta.duration, basis, timeAvailable)
     }
@@ -70,9 +74,8 @@ const getRelevanceBasis = state => {
 }
 
 const sumRelevanceScore = card => {
-  const {item, relevance} = card
-  const {baseRelevance = 1} = item.meta
-  relevance.score = reduce(relevance.basis, multiplyRounded, baseRelevance)
+  const {relevance} = card
+  relevance.score = reduce(relevance.basis, multiplyRounded, 1)
   return card
 }
 
