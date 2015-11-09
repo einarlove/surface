@@ -11,6 +11,7 @@
   border-radius: 2px;
   box-shadow: 0 0 3px 0px borderColor;
   transition: box-shadow .7s ease-out-cubic, transform .5s ease-out-expo;
+  position: relative;
 }
 
 .card:hover {

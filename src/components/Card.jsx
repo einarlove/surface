@@ -53,19 +53,8 @@ export default class Card extends Component {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
     }),
-    registerHeightUpdate: PropTypes.func,
     relevance: PropTypes.object.isRequired,
     debug: PropTypes.bool.isRequired,
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.updateHeightOnceOnInitial = once(this.props.registerHeightUpdate)
-  }
-
-  componentDidUpdate() {
-    this.updateHeightOnceOnInitial()
   }
 
   render() {
@@ -85,24 +74,20 @@ export default class Card extends Component {
     )
 
     return (
-
-      <div>
-        <div className={className} style={{
-          opacity: relevance.score >= 0.4 ? 1 : 0.5,
-        }}>
-          <div className={style.body}>
-            {title && <Title title={title} style={style}/>}
-            {description && <Description description={description} style={style}/>}
-            {action && <Action action={action} style={style}/>}
-          </div>
-          <div className={style.figure}>
-            {cover && <Cover cover={cover} style={style} onLoad={this.props.registerHeightUpdate} />}
-            {action && <Action action={action} style={style}/>}
-          </div>
+      <div className={className}>
+        <div className={style.body}>
+          {title && <Title title={title} style={style}/>}
+          {description && <Description description={description} style={style}/>}
+          {action && <Action action={action} style={style}/>}
+        </div>
+        <div className={style.figure}>
+          {cover && <Cover cover={cover} style={style} onLoad={this.props.registerHeightUpdate} />}
+          {action && <Action action={action} style={style}/>}
         </div>
 
         {this.props.debug && <RelevanceInformation relevance={relevance} />}
       </div>
+
     )
   }
 }

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import StackedItems from './StackedItems'
 import { connect } from 'react-redux'
 import sortedCardsByRelevanceReducer from '../reducers/sortedCardsByRelevanceReducer'
 import Card from './Card'
@@ -42,16 +41,14 @@ export default class Surface extends Component {
     return (
       <div className={styles.surface}>
         {this.props.debug && <PanelsContainer />}
-        <StackedItems className={styles.list} items={this.props.cards}>
-          {(card, registerHeightUpdate) => (
+          {this.props.cards.map(card => (
             <Card
+              key={card.id}
               {...card.item}
-              registerHeightUpdate={registerHeightUpdate}
               relevance={card.relevance}
               debug={this.props.debug}
             />
-          )}
-        </StackedItems>
+          ))}
       </div>
     )
   }
