@@ -79,12 +79,16 @@ const sumRelevanceScore = card => {
   return card
 }
 
-function sortByScore({relevance: ra}, {relevance: rb}) {
+const sortByScore = ({relevance: ra}, {relevance: rb}) => {
   if (ra.score === rb.score) {
     return 0
   }
 
   return ra.score < rb.score ? 1 : -1
+}
+
+const filterByRelevanceTolerance = state => item => {
+  return item.relevance.score >= state.cards.relevanceTolerance
 }
 
 export default function(state) {
@@ -97,4 +101,5 @@ export default function(state) {
     .map(getRelevanceBasis(state))
     .map(sumRelevanceScore)
     .sort(sortByScore)
+    .filter(filterByRelevanceTolerance(state))
 }
