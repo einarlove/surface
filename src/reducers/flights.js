@@ -10,7 +10,7 @@ function collection(state = [], action) {
 }
 
 const initialCurrent = {
-  toDeparture: 'PT3H',
+  toDeparture: 'PT2H',
 }
 
 function current(state = initialCurrent, action) {

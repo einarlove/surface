@@ -59,8 +59,6 @@ export default class FlightPanel extends Component {
 
   render() {
     const { direction, international } = this.props.flight
-    // const total = 3 * 24
-    const total = 4
 
     return (
       <form className={styles.panel} onChange={::this.onChange}>
@@ -71,7 +69,7 @@ export default class FlightPanel extends Component {
         <div className={styles.group}>
           <h2 className={styles.sliderLabel}>Departure {moment.duration(this.state.hours, 'hours').humanize(true)}</h2>
           <ReactSlider
-            max={total}
+            max={3}
             min={0.25}
             step={0.25}
             value={this.state.hours}

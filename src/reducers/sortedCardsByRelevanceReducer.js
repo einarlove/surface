@@ -9,7 +9,7 @@ const WALKING_DURATION = duration(10, 'minutes')
 const REQUIRED_TIME_BEFORE_GO_TO_GATE = duration(20, 'minutes')
 
 const multiplyRounded = (left, right) => {
-  return round((left || 1) * right, 2)
+  return round(left * right, 2)
 }
 
 const multiplyEmphasises = (...objects) => {
@@ -39,7 +39,7 @@ const getEmphasis = state => {
 }
 
 const applyTimeEmphasis = (cardDuration, basis, timeAvailable) => {
-  if (timeAvailable >= duration(3, 'hours')) {
+  if (timeAvailable >= duration(2, 'hours')) {
     if (duration(cardDuration) >= duration(20, 'minutes')) {
       basis.longDurartion = 1.2
     }
