@@ -55,6 +55,7 @@ export default class Card extends Component {
     }),
     registerHeightUpdate: PropTypes.func,
     relevance: PropTypes.object.isRequired,
+    debug: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -100,7 +101,7 @@ export default class Card extends Component {
           </div>
         </div>
 
-        <RelevanceInformation relevance={relevance} />
+        {this.props.debug && <RelevanceInformation relevance={relevance} />}
       </div>
     )
   }
