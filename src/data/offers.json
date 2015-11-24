@@ -40,7 +40,10 @@
       "direction": "departure",
       "international": true,
       "eatery": true,
-      "duration": "PT10M"
+      "duration": "PT10M",
+      "expiration": {
+        "to": "2015-11-19"
+      }
     },
     "action": {
       "type": "qrCode",
