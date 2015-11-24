@@ -1,4 +1,4 @@
-export default function debug(state = false, action) {
+export default function debug(state = true, action) {
   switch (action.type) {
 
   case 'ENABLE_DEBUG':

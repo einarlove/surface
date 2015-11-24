@@ -69,9 +69,9 @@ export default class FlightPanel extends Component {
         <div className={styles.group}>
           <h2 className={styles.sliderLabel}>Departure {moment.duration(this.state.hours, 'hours').humanize(true)}</h2>
           <ReactSlider
-            max={3}
-            min={0.25}
-            step={0.25}
+            max={3.5}
+            min={10 / 60}
+            step={15 / 60}
             value={this.state.hours}
             onChange={::this.onSliderChange}
             onAfterChange={::this.onSliderAfterChange}

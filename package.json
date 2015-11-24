@@ -18,6 +18,7 @@
     "file-loader": "^0.8.4",
     "json-loader": "^0.5.3",
     "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "postcss-color-function": "^2.0.0",
     "postcss-easings": "^0.3.0",
     "postcss-loader": "^0.6.0",

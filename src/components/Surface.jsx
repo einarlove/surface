@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import sortedCardsByRelevanceReducer from '../reducers/sortedCardsByRelevanceReducer'
 import Card from './Card'
 import PanelsContainer from './debug/PanelsContainer'
+import prioritizeByRelevance from '../selectors/prioritizeByRelevance'
 
 import styles from 'styles/Surface'
 
 @connect(state => ({
-  cards: sortedCardsByRelevanceReducer(state),
+  cards: prioritizeByRelevance(state),
   debug: state.debug,
 }))
 export default class Surface extends Component {
@@ -43,7 +43,7 @@ export default class Surface extends Component {
         {this.props.debug && <PanelsContainer />}
           {this.props.cards.map(card => (
             <Card
-              key={card.id}
+              key={card.item.id}
               {...card.item}
               relevance={card.relevance}
               debug={this.props.debug}

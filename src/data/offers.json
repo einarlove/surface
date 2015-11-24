@@ -194,7 +194,7 @@
     "description": "På Fashion som ligger rett ved sikkerhetskontrollen får du et slips med på kjøpet av en ny skjorte.\n Du velger selv selvsagt.",
     "layout": "horizontal",
     "cover": {
-      "src": "./fashion-men.jpg"
+      "src": "./fashion.jpg"
     },
     "meta": {
       "baseRelevance": 0.8,
@@ -242,6 +242,22 @@
       "direction": "arrival",
       "eatery": true,
       "duration": "PT10M"
+    }
+  },
+  {
+    "title": "Parkering",
+    "description": "Frem til 28 mars får du 36% rabatt for 7 til 15 døgn i P10, innendørs parkering nærmest terminalen.\n Legg inn kampanjekoden når du forhåndsbestiller parkering.",
+    "cover": {
+      "src": "./parking.jpg"
+    },
+    "meta": {
+      "baseRelevance": 1.1,
+      "direction": "departure",
+      "duration": "PT20M",
+      "location": {
+        "type": "area",
+        "name": "parking"
+      }
     }
   }
 ]

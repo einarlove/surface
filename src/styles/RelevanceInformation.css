@@ -5,6 +5,7 @@
   top: 0;
   position: absolute;
   padding-left: .6em;
+  width: 20em;
 }
 
 .score {
@@ -12,18 +13,22 @@
   font-weight: bolder;
 }
 
-.basisList {
+.reasonsList {
   margin-top: .2em;
   padding-top: .2em;
   border-top: 2px solid lightGray;
-  font-size: 0.8em;
+  font-size: 0.75em;
+  display: inline-block;
 }
 
-.basisKey {
-
+.reasonItem {
+  margin-bottom: .1em;
 }
 
-.basisValue {
-  margin-left: .4em;
+.reasonScore {
   font-weight: bolder;
+}
+
+.reasonLabel {
+  margin-left: .4em;
 }

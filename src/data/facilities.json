@@ -13,7 +13,11 @@
       "direction": "departure",
       "international": true,
       "duration": "PT20M",
-      "workFriendly": true
+      "workFriendly": true,
+      "location": {
+        "type": "gate",
+        "name": "46"
+      }
     }
   },
   {
@@ -31,7 +35,11 @@
       "direction": "departure",
       "international": false,
       "duration": "PT10M",
-      "children": true
+      "children": true,
+      "location": {
+        "type": "gate",
+        "name": "15"
+      }
     }
   },
   {
@@ -43,7 +51,12 @@
     "meta": {
       "direction": "departure",
       "duration": "PT3M",
-      "children": true
+      "children": true,
+      "location": {
+        "type": "area",
+        "name": "security control",
+        "proximity": "after"
+      }
     }
   },
   {
@@ -70,7 +83,28 @@
       "baseRelevance": 1.2,
       "direction": "departure",
       "duration": "PT10M",
-      "children": true
+      "children": true,
+      "location": {
+        "type": "area",
+        "name": "security control"
+      }
+    }
+  },
+  {
+    "name": "sitteommråde bak passkontrol",
+    "description": "Når du er forbi passkontrollen kan du slappe av, surfe eller jobbe i sitteområdene vi har i andre etasje",
+    "layout": "vertical",
+    "cover": {
+      "src": "./passport-control-area.jpg"
+    },
+    "meta": {
+      "direction": "departure",
+      "duration": "PT10M",
+      "location": {
+        "type": "area",
+        "name": "passport control",
+        "proximity": "after"
+      }
     }
   },
   {

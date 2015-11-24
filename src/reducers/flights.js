@@ -11,6 +11,9 @@ function collection(state = [], action) {
 
 const initialCurrent = {
   toDeparture: 'PT2H',
+  status: {
+    gate: '51B',
+  },
 }
 
 function current(state = initialCurrent, action) {

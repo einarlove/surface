@@ -81,7 +81,7 @@ export default class Card extends Component {
           {action && <Action action={action} style={style}/>}
         </div>
         <div className={style.figure}>
-          {cover && <Cover cover={cover} style={style} onLoad={this.props.registerHeightUpdate} />}
+          {cover && <Cover cover={cover} style={style} />}
           {action && <Action action={action} style={style}/>}
         </div>
 
