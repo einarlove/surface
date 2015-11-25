@@ -34,13 +34,10 @@
 
 .action {
   composes: action from index;
+  display: flex;
   border-top: 1px solid borderColor;
   transition: .7s background-color ease-out-expo;
   align-items: center;
-}
-
-.figure .action {
-  display: flex;
 }
 
 .cover + .action {

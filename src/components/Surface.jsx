@@ -43,7 +43,7 @@ export default class Surface extends Component {
         {this.props.debug && <PanelsContainer />}
           {this.props.cards.map(card => (
             <Card
-              key={card.item.id}
+              key={card.item.id || card.item.title}
               {...card.item}
               relevance={card.relevance}
               debug={this.props.debug}

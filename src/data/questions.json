@@ -2,6 +2,15 @@
   {
     "name": "children",
     "title": "Har du med småbarn på reisen?",
+    "requireAnswered": {
+      "name": "business",
+      "value": false
+    },
+    "meta": {
+      "direction": "departure",
+      "baseRelevance": 1.25,
+      "requiredTimeAvailable": "PT15M"
+    },
     "options": [{
       "label": "Ja",
       "value": true,
@@ -21,6 +30,11 @@
   {
     "name": "business",
     "title": "Er dette en foretningsreise?",
+    "meta": {
+      "direction": "departure",
+      "baseRelevance": 1.25,
+      "requiredTimeAvailable": "PT20M"
+    },
     "options": [{
       "label": "Ja",
       "value": true,
@@ -37,6 +51,11 @@
   {
     "name": "companions",
     "title": "Har du med reisefølge?",
+    "meta": {
+      "direction": "departure",
+      "requiredTimeAvailable": "PT20M",
+      "forDebugging": true
+    },
     "options": [{
       "label": "Ja",
       "value": true,
@@ -54,6 +73,11 @@
   {
     "name": "hungry",
     "title": "Er du sulten?",
+    "meta": {
+      "direction": "departure",
+      "requiredTimeAvailable": "PT20M",
+      "forDebugging": true
+    },
     "options": [{
       "label": "Kjempesulten",
       "value": true,

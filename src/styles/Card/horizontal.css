@@ -24,11 +24,11 @@
 }
 
 .body {
-  flex: 3;
+  display: flex;
 }
 
-.body .action {
-  display: flex;
+.content {
+  flex: 3;
 }
 
 .figure {

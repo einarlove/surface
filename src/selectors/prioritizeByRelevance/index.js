@@ -2,9 +2,11 @@ import filterIrrelevant from './filterIrrelevant'
 import getTimeAvailable from './getTimeAvailable'
 import getRelevance from './getRelevance'
 import sortByRelevance from './sortByRelevance'
+import getInjectedCards from './getInjectedCards'
 
 const addRelevance = state => {
   const timeAvailable = getTimeAvailable(state)
+
   return item => ({
     item,
     relevance: getRelevance({
@@ -21,6 +23,7 @@ const filterByRelevanceTolerance = state => ({relevance}) => {
 
 export default function(state) {
   return state.cards.collection
+    .concat(getInjectedCards(state))
     .filter(filterIrrelevant(state))
     .map(addRelevance(state))
     .sort(sortByRelevance)

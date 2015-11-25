@@ -27,16 +27,16 @@ export default class questionsPanel extends Component {
     }
   }
 
-  renderQuestion(question) {
+  renderQuestion({name, options, answer}) {
     return (
-      <div className={styles.group} key={question.name}>
-        <h2 className={styles.labelText}>{question.name}</h2>
-        {question.options.map(option => (
+      <div className={styles.group} key={name}>
+        <h2 className={styles.labelText}>{name}</h2>
+        {options.map(option => (
           <button
             key={option.label}
             type="button"
-            className={question.answer && option.value === question.answer.value ? styles.optionButtonActive : styles.optionButton}
-            onClick={this.onAnswer.bind(this, question.name, option)}
+            className={answer && answer.value === option.value ? styles.optionButtonActive : styles.optionButton}
+            onClick={this.onAnswer.bind(this, name, option)}
           >{option.label}</button>
         ))}
       </div>

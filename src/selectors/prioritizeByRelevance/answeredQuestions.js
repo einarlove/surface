@@ -7,11 +7,11 @@ export default (reasons, {meta, state}) => {
 
   state.cards.questions
     .filter(question => question.answer)
-    .map(question => map(question.answer.emphasis, (relevance, emphasis) => {
+    .map(({name, answer}) => map(answer.emphasis, (relevance, emphasis) => {
       if (emphasis in meta) {
-        const sameProperty = emphasis !== question.name
+        const sameProperty = emphasis !== name
         reasons.push({
-          reason: `${question.name} = ${question.answer.value}` + (sameProperty ? ` && ${emphasis}` : ''),
+          reason: `${name} = ${answer.value}` + (sameProperty ? ` && ${emphasis}` : ''),
           relevance,
         })
       }
